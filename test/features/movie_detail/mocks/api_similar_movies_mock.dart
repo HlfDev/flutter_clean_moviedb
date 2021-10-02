@@ -14,7 +14,7 @@ const similarMoviesMock = """ {
 "title": "Starship Troopers",
 "original_language": "en",
 "original_title": "Starship Troopers",
-"overview": "Set in the future, the story follows a young soldier named Johnny Rico and his exploits in the Mobile Infantry. Rico's military career progresses from recruit to non-commissioned officer and finally to officer against the backdrop of an interstellar war between mankind and an arachnoid species known as "the Bugs".",
+"overview": "Set in the future, the story follows a young soldier named Johnny Rico and his exploits in the Mobile Infantry. Rico's military career progresses from recruit to non-commissioned officer and finally to officer against the backdrop of an interstellar war between mankind and an arachnoid species known as the Bugs.",
 "popularity": 21.915,
 "poster_path": "/cxCmv23O7p3hyHwqoktHYkZcGsY.jpg",
 "release_date": "1997-11-07",

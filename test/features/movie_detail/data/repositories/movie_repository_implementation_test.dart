@@ -22,9 +22,9 @@ void main() {
   const tMovieModel = MovieModel(
       id: 550,
       originalTitle: 'Fight Club',
-      popularity: 42.254,
+      popularity: 48.739,
       posterPath: '/a26cQPRhJPX6GbWfQbvZdrrp9j9.jpg',
-      voteCount: 22472);
+      voteCount: 22480);
 
   const tId = 550;
 
