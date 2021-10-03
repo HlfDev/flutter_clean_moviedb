@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_string_escapes
-
 const movieMock = """ {
 "adult": false,
 "backdrop_path": "/fygeMr16EcxJiYhdiO1LEr7iHtI.jpg",
