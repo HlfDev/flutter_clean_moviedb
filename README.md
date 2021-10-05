@@ -1,6 +1,6 @@
 <h1 align="center">MovieDB</h1>
 <p align="center">
-  Esse projeto é um clone do layout da tela de detalhe dos filmes do app <a href="[url](https://apps.apple.com/br/app/todomovies-4/id792499896)"> TodoMovies4 </a>, utilizando a API do <a href="https://www.themoviedb.org/?language=pt-BR">The Movie DB</a> para obter as informações dos filmes, e usando Clean Architecture para estrutura.
+  Esse projeto é um clone do layout da tela de detalhe dos filmes do app <a href="https://apps.apple.com/br/app/todomovies-4/id792499896"> TodoMovies4 </a>, utilizando a API do <a href="https://www.themoviedb.org/?language=pt-BR">The Movie DB</a> para obter as informações dos filmes, e usando Clean Architecture para estrutura.
 </p>
 <br>
 <h1 align="center">Layout</h1>
