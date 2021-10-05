@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:moviedb/core/usecase/errors/exceptions.dart';
 import 'package:moviedb/core/usecase/errors/failures.dart';
 import 'package:moviedb/features/movie_detail/data/datasource/movie_datasource.dart';
@@ -17,6 +18,8 @@ class MovieRepositoryImplementation implements IMovieRepository {
       return Right(result);
     } on ServerException {
       return Left(ServerFailure());
+    } on DioError {
+      return Left(DioErrorFailure());
     }
   }
 }

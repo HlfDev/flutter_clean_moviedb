@@ -11,11 +11,10 @@ class SimilarMoviesDatasouceImplementation implements ISimilarMoviesDatasource {
     required this.httpClient,
   });
 
-  final String url = MoviedbEndpoints.getSimilarMoviesUrl();
-
   @override
   Future<List<SimilarMovieModel>> getSimilarMoviesById(int id) async {
-    final response = await httpClient.get(url);
+    final response =
+        await httpClient.get(MoviedbEndpoints.getSimilarMoviesUrl(movieId: id));
     if (response.statusCode == 200) {
       final result = response.data['results'] as List;
 

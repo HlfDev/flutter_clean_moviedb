@@ -21,7 +21,7 @@ Future<void> main() async {
   late MovieDatasouceImplementation datasource;
   late Dio httpClient;
 
-  final String url = MoviedbEndpoints.getMovieUrl();
+  final String url = MoviedbEndpoints.getMovieUrl(movieId: 550);
 
   setUp(() {
     httpClient = MockHttpClient();

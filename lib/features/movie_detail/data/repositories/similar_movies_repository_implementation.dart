@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:moviedb/core/usecase/errors/exceptions.dart';
 import 'package:moviedb/core/usecase/errors/failures.dart';
 import 'package:moviedb/features/movie_detail/data/datasource/similar_movies_datasource.dart';
@@ -19,6 +20,8 @@ class SimilarMoviesRepositoryImplementation
       return Right(result);
     } on ServerException {
       return Left(ServerFailure());
+    } on DioError {
+      return Left(DioErrorFailure());
     }
   }
 }
