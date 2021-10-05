@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:moviedb/core/app/app_colors.dart';
 import 'package:moviedb/core/app/app_text_styles.dart';
 import 'package:moviedb/features/movie_detail/data/datasource/endpoints/moviedb_endpoint.dart';
 import 'package:moviedb/features/movie_detail/domain/entities/similar_movie_entity.dart';
+import 'package:moviedb/features/movie_detail/presenter/controller/similar_movies_controller.dart';
 
 class SliverSimilarMoviesListItemWidget extends StatefulWidget {
   const SliverSimilarMoviesListItemWidget(
@@ -18,6 +20,7 @@ class SliverSimilarMoviesListItemWidget extends StatefulWidget {
 
 class _SliverSimilarMoviesListItemWidgetState
     extends State<SliverSimilarMoviesListItemWidget> {
+  final controller = Modular.get<SimilarMoviesController>();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,6 +71,11 @@ class _SliverSimilarMoviesListItemWidgetState
                           TextSpan(
                             text:
                                 '${widget.similarMovie.releaseDate.substring(0, 4)} ',
+                            style: AppTextStyles.nunitoSansGrey14w400,
+                          ),
+                          TextSpan(
+                            text:
+                                '${controller.convertGenresIdToName(widget.similarMovie.genreIds)} ',
                             style: AppTextStyles.nunitoSansGrey14w400,
                           ),
                         ]),

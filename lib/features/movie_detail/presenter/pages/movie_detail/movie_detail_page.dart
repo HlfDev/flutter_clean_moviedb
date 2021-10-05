@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:moviedb/core/app/app_colors.dart';
-import 'package:moviedb/core/app/app_text_styles.dart';
 import 'package:moviedb/features/movie_detail/presenter/controller/controller_status.dart';
 import 'package:moviedb/features/movie_detail/presenter/controller/movie_controller.dart';
 import 'package:moviedb/features/movie_detail/presenter/pages/movie_detail/view/movie_error_view.dart';

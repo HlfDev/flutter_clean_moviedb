@@ -23,6 +23,7 @@ class _SliverSimilarMoviesListWidgetState
 
   @override
   void initState() {
+    controller.getGenres();
     controller.getSimilarMoviesById(widget.movieId);
 
     super.initState();

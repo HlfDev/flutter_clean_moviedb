@@ -1,10 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'features/movie_detail/data/datasource/genres_datasource_implementation.dart';
 import 'features/movie_detail/data/datasource/movie_datasource_implementation.dart';
 import 'features/movie_detail/data/datasource/similar_movies_datasource_implementation.dart';
+import 'features/movie_detail/data/repositories/genres_repository_implementation.dart';
 import 'features/movie_detail/data/repositories/movie_repository_implementation.dart';
 import 'features/movie_detail/data/repositories/similar_movies_repository_implementation.dart';
+import 'features/movie_detail/domain/usecases/get_genres_usecase.dart';
 import 'features/movie_detail/domain/usecases/get_movie_by_id_usecase.dart';
 import 'features/movie_detail/domain/usecases/get_similar_movies_by_id_usecase.dart';
 
@@ -20,14 +23,18 @@ class AppModule extends Module {
         )),
     Bind.lazySingleton((i) => SimilarMoviesController(
           similarMoviesById: i(),
+          genres: i(),
         )),
     Bind.lazySingleton((i) => GetMovieByIdUsecase(i())),
     Bind.lazySingleton((i) => GetSimilarMoviesByIdUsecase(i())),
+    Bind.lazySingleton((i) => GetGenresUsecase(i())),
     Bind.lazySingleton((i) => MovieRepositoryImplementation(i())),
     Bind.lazySingleton((i) => SimilarMoviesRepositoryImplementation(i())),
+    Bind.lazySingleton((i) => GenresRepositoryImplementation(i())),
     Bind.lazySingleton((i) => MovieDatasouceImplementation(httpClient: i())),
     Bind.lazySingleton(
         (i) => SimilarMoviesDatasouceImplementation(httpClient: i())),
+    Bind.lazySingleton((i) => GenresDatasouceImplementation(httpClient: i())),
     Bind.lazySingleton((i) => Dio()),
   ];
 
