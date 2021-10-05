@@ -11,11 +11,10 @@ class MovieDatasouceImplementation implements IMovieDatasource {
     required this.httpClient,
   });
 
-  final String url = MoviedbEndpoints.getMovieUrl();
-
   @override
   Future<MovieModel> getMovieById(int id) async {
-    final response = await httpClient.get(url);
+    final response =
+        await httpClient.get(MoviedbEndpoints.getMovieUrl(movieId: id));
     if (response.statusCode == 200) {
       return MovieModel.fromJson(response.data);
     } else {

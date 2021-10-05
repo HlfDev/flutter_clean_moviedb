@@ -21,7 +21,7 @@ void main() async {
   late SimilarMoviesDatasouceImplementation datasource;
   late Dio httpClient;
 
-  final String url = MoviedbEndpoints.getSimilarMoviesUrl();
+  final String url = MoviedbEndpoints.getSimilarMoviesUrl(movieId: 550);
 
   setUp(() {
     httpClient = MockHttpClient();

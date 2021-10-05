@@ -29,7 +29,9 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
             slivers: [
               SliverAppBarWidget(),
               const SliverMovieInfoWidget(),
-              const SliverSimilarMoviesListWidget(),
+              SliverSimilarMoviesListWidget(
+                movieId: controller.movie.id,
+              ),
             ],
           ),
           const ArrowBackWidget(),

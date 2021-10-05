@@ -35,18 +35,23 @@ abstract class _MovieControllerBase with Store {
   @action
   setStatus(ControllerStatus newState) => status = newState;
 
+  @action
+  clearError() => error = null;
+
   @observable
   Failure? error;
 
   @action
   Future<void> getMovieById(int id) async {
+    clearError();
     setStatus(ControllerStatus.loading);
     final result = await movieById(id);
     result.fold((l) => error = l, (r) => movie = r);
 
-    // ignore: unrelated_type_equality_checks
-    error != "null"
-        ? setStatus(ControllerStatus.sucess)
-        : setStatus(ControllerStatus.error);
+    if (error is Failure) {
+      setStatus(ControllerStatus.error);
+    } else {
+      setStatus(ControllerStatus.sucess);
+    }
   }
 }

@@ -3,11 +3,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class MoviedbEndpoints {
   static String apiKey = dotenv.env['API_KEY'].toString();
 
-  static String getMovieUrl() =>
-      "https://api.themoviedb.org/3/movie/550?api_key=$apiKey";
+  static String getMovieUrl({required int movieId}) =>
+      "https://api.themoviedb.org/3/movie/$movieId?api_key=$apiKey";
 
-  static String getSimilarMoviesUrl() =>
-      "https://api.themoviedb.org/3/movie/550/similar?api_key=$apiKey";
+  static String getSimilarMoviesUrl({required int movieId}) =>
+      "https://api.themoviedb.org/3/movie/$movieId/similar?api_key=$apiKey";
 
   static String getMoviesGenresUrl() =>
       "https://api.themoviedb.org/3/genre/movie/list?api_key=$apiKey";

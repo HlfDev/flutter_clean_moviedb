@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:moviedb/core/app/app_colors.dart';
 import 'package:moviedb/core/app/app_text_styles.dart';
+import 'package:moviedb/core/usecase/converter/numbers_converters.dart';
 import 'package:moviedb/features/movie_detail/presenter/controller/movie_controller.dart';
 
 class HeaderMovieInformationWidget extends StatelessWidget {
@@ -21,7 +22,7 @@ class HeaderMovieInformationWidget extends StatelessWidget {
           width: 6,
         ),
         Text(
-          '${controller.movie.voteCount} Likes',
+          '${Converters.kmbConverter(controller.movie.voteCount)} Likes',
           style: AppTextStyles.nunitoSansGrey14w400,
           overflow: TextOverflow.ellipsis,
         ),

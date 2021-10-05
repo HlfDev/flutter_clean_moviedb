@@ -27,15 +27,20 @@ abstract class _SimilarMoviesControllerBase with Store {
   setStatus(ControllerStatus newState) => status = newState;
 
   @action
+  clearError() => error = null;
+
+  @action
   Future<void> getSimilarMoviesById(int id) async {
+    clearError();
     setStatus(ControllerStatus.loading);
 
     final result = await similarMoviesById(id);
     result.fold((l) => error = l, (r) => similarMovies = r.asObservable());
 
-    // ignore: unrelated_type_equality_checks
-    error != "null"
-        ? setStatus(ControllerStatus.sucess)
-        : setStatus(ControllerStatus.error);
+    if (error is Failure) {
+      setStatus(ControllerStatus.error);
+    } else {
+      setStatus(ControllerStatus.sucess);
+    }
   }
 }

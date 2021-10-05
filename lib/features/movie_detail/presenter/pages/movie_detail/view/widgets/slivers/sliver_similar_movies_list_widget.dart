@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:moviedb/core/app/app_text_styles.dart';
 
 import 'package:moviedb/features/movie_detail/presenter/controller/controller_status.dart';
 import 'package:moviedb/features/movie_detail/presenter/controller/similar_movies_controller.dart';
@@ -8,8 +9,9 @@ import 'package:moviedb/features/movie_detail/presenter/controller/similar_movie
 import 'sliver_similar_movies_list_item_widget.dart';
 
 class SliverSimilarMoviesListWidget extends StatefulWidget {
-  const SliverSimilarMoviesListWidget({Key? key}) : super(key: key);
-
+  const SliverSimilarMoviesListWidget({Key? key, required this.movieId})
+      : super(key: key);
+  final int movieId;
   @override
   _SliverSimilarMoviesListWidgetState createState() =>
       _SliverSimilarMoviesListWidgetState();
@@ -21,7 +23,8 @@ class _SliverSimilarMoviesListWidgetState
 
   @override
   void initState() {
-    controller.getSimilarMoviesById(550);
+    controller.getSimilarMoviesById(widget.movieId);
+
     super.initState();
   }
 
@@ -37,7 +40,22 @@ class _SliverSimilarMoviesListWidgetState
               return Container();
             case ControllerStatus.error:
               return Center(
-                child: Text("${controller.error}"),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 50),
+                    Text(
+                      'Houve algum problema ao consultar o filme',
+                      style: AppTextStyles.nunitoSansWhite16w500,
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          controller.getSimilarMoviesById(widget.movieId),
+                      child: const Text('Tentar Novamente!'),
+                    )
+                  ],
+                ),
               );
             case ControllerStatus.sucess:
               return ListView.builder(

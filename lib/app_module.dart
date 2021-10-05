@@ -33,6 +33,9 @@ class AppModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, __) => const MovieDetailPage()),
+    ChildRoute('/',
+        child: (_, __) => const MovieDetailPage(
+              movieId: 550,
+            )),
   ];
 }
