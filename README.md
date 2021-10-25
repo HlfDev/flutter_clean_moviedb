@@ -25,7 +25,9 @@
 
 
    - Crie um clone desse repositório:
-   $ git clone https://github.com/HlfDev/moviedb.git
+   ```shell
+   $ git clone https://github.com/HlfDev/moviedb.git 
+   ```
 
    - Entre no diretório:
    $ cd moviedb
